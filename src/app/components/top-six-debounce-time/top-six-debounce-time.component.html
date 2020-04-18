@@ -1,0 +1,20 @@
+<p>{{ title }}</p>
+<p>See logs in your console</p>
+
+<!-- <label for="typeahead-basic">Search for a state:</label>
+<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="searchTerm" [ngbTypeahead]="search"/> -->
+
+
+<fieldset class="form-inline">
+    <legend>Search</legend>
+  <div class="form-group">
+    <label for="typeahead-http">Search for a wiki page:</label>
+    <input id="typeahead-http" type="text" class="form-control mx-sm-3" [class.is-invalid]="searchFailed" 
+    [(ngModel)]="searchTerm" [ngbTypeahead]="search" placeholder="Wikipedia search" />
+    <small *ngIf="searching" class="form-text text-muted">searching...</small>
+    <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+  </div>
+</fieldset>
+
+<hr />
+<pre>Model: {{ searchTerm | json }}</pre>
